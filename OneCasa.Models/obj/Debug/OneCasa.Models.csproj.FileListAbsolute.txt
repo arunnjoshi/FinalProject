@@ -1,0 +1,5 @@
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\OneCasa.Models.dll
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\OneCasa.Models.pdb
+D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.csprojAssemblyReference.cache
+D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.dll
+D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.pdb

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<OneCasa.Models.ViewModels.Employee>
+<div class="jumbotron container  shadow p-3 mb-5 bg-white rounded" id="Emp-table-div">
+    <h5 style="float: left;">List Of Employees</h5> 
+    <div style="float: right;">
+        <input type="text" name="Search" id="search" placeholder="Search"> 
+        <button type="button" class="btn btn-info">Search</button>
+    </div>    
+    <table class="table clr" id="Emp-table">
+        <thead>
+        <th>
+            @Html.DisplayNameFor(e => e.EmpId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e => e.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e => e.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e => e.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e => e.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(e => e.Manager)
+        </th>
+        </thead>
+        <tbody id="Emp-tbody">
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.EmpId</td>
+                <td>@emp.EmpName</td>
+                <td>@emp.Department</td>
+                <td>@emp.Email</td>
+                <td>@emp.PhoneNumber</td>
+                <td>@emp.Manager</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<script src="~/scripts/customjs/employee.js"></script>
