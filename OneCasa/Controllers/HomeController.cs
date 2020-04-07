@@ -1,6 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using System.Linq;
 using OneCasa.BusinessAccess;
+using OneCasa.Models.ViewModels;
 
 namespace OneCasa.Controllers
 {

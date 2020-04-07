@@ -3,19 +3,30 @@ $.ajax({
         url: "/Home/GetUpcomingBirthDays",
         method:"GET",
         dataType: "Json",
-        success: function (response) {
+        beforeSend:function(){
+                $(".loader").show();
+        },
+        complete:function () {
+            setInterval(() => {
+                 $(".loader").hide();   
+            }, 500);
+        },
+        success: function (response) 
+        {
             let html=``;
-        if(response.length!=0){
-            $.each(response, function (indexInArray, valueOfElement) { 
-                let d=new Date(parseInt(  valueOfElement.DateOfBirth.replace('/Date(', '')));
-                 html+=`<li> <img src="../../Content/Images/birthday.png" alt="png" width=20px height=20px>
-                 ${valueOfElement.EmpName} BirthDay at ${d.getDate()} 
-                 ${months[d.getMonth()].substring(0,3)}
-                 ${new Date().getFullYear()}
-                 </li><br/>`
-            });
-            $("#upcoming-Birthdays").html(html);
+            if(response.length!=0)
+            {
+                $.each(response, function (indexInArray, valueOfElement) { 
+                    let d=new Date(parseInt(  valueOfElement.DateOfBirth.replace('/Date(', '')));
+                    html+=`<li> <img src="../../Content/Images/birthday.png" alt="png" width=20px height=20px>
+                    ${valueOfElement.EmpName} BirthDay at ${d.getDate()} 
+                    ${months[d.getMonth()].substring(0,3)}
+                    ${new Date().getFullYear()}
+                    </li><br/>`
+                });
         }
+        $("#upcoming-Birthdays").html(html);
+        
 }});
 
 $.ajax({
@@ -24,8 +35,6 @@ $.ajax({
     dataType: "Json",
     success: function (response) {
         let html=``;
-        console.log(response);
-        
         if(response.length!=0){
             $.each(response, function (indexInArray, valueOfElement) { 
                 let d=new Date(parseInt(  valueOfElement.JoinDate.replace('/Date(', '')));
@@ -64,6 +73,12 @@ $.ajax({
     url: "/Home/GetPastAnniversary",
     method:"GET",
     dataType: "Json",
+    beforeSend:function(){
+        console.log("before send")
+    },
+    complete:function () {
+        console.log('complete')
+    },
     success: function (response) {
         let html=``;
         if(response.length!=0){

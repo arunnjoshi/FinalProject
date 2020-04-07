@@ -3,9 +3,18 @@ $.ajax({
     url: "/Home/GetSearchEmployees",
     method:"GET",
     dataType: "Json",
+    beforeSend:function(){
+            $(".loader").show();
+    },
+    complete:function () {
+        setInterval(() => {
+        $(".loader").hide();
+            
+        }, 500);
+    },
     success: function (response) {
         empObj=response;
-    }
+    },
 });  
 
 

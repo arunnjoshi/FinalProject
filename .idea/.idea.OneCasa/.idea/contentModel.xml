@@ -32,6 +32,7 @@
           <e p="Images" t="Include">
             <e p="anniversary.png" t="Include" />
             <e p="birthday.png" t="Include" />
+            <e p="loader.gif" t="Include" />
             <e p="logo.svg" t="Include" />
             <e p="search.png" t="Include" />
           </e>
@@ -43,7 +44,6 @@
         <e p="favicon.ico" t="Include" />
         <e p="Global.asax" t="Include" />
         <e p="Global.asax.cs" t="Include" />
-        <e p="Models" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="OneCasa.csproj" t="IncludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -228,6 +228,7 @@
         </e>
         <e p="ViewModels" t="Include">
           <e p="Employee.cs" t="Include" />
+          <e p="EmployeeAddress.cs" t="Include" />
         </e>
       </e>
       <e p="OneCasa.sln" t="IncludeFlat" />

@@ -4,8 +4,8 @@
     <div style="float: right;">
         <input type="text" name="Search" id="search" placeholder="Search"> 
         <button type="button" class="btn btn-info">Search</button>
-    </div>    
-    <table class="table clr" id="Emp-table">
+    </div>    <div  class="table-responsive">
+    <table class="table clr table-bordered" id="Emp-table">
         <thead>
         <th>
             @Html.DisplayNameFor(e => e.EmpId)
@@ -40,6 +40,7 @@
         }
         </tbody>
     </table>
+    </div>
 </div>
 
 <script src="~/scripts/customjs/employee.js"></script>
