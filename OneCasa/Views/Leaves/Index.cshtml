@@ -1,9 +1,12 @@
-﻿@model IEnumerable<OneCasa.Models.ViewModels.PublicHolidays>
+﻿@using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime
+@model IEnumerable<OneCasa.Models.ViewModels.PublicHolidays>
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    string[] months = new string[] {"January", "February", "March", "April", "May",
+        "June", "July", "August", "September", "October", "November", "December"};
 }
-<div class="container  shadow p-3 mb-5 bg-white rounded">
+<div class="container  shadow p-3 mb-5 bg-white rounded LeaveContainer">
     <div align="center" class="LeavesIndex">
         <button type="button" class="btn btn-light LeaveMenu" value="viewLeaves">View Leaves</button>
         <button type="button" class="btn btn-light LeaveMenu" value="ApplyLeaves">Apply Leaves</button>
@@ -12,7 +15,28 @@
         <button type="button" class="btn btn-light LeaveMenu" value="PublicHolidays">Public Holidays List</button>
     </div>
     <div id="viewLeaves">
-        <h1>View Leaves</h1>
+        <table class="table  table-bordered">
+            <thead>
+            @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
+            {
+                <th>
+                    @months[@d.Month]
+                    @d.Day
+                </th>
+            }
+            </thead>
+            <tbody>
+                @for (int i = 0; i < 10; i++)
+                {
+                    <tr>
+                          @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
+                                    {
+                                        <td>@i</td>
+                                    }
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
     
     

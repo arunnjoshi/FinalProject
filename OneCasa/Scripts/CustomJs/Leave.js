@@ -5,7 +5,7 @@
     $("#LeavesStatus").hide();
     $("#PublicHolidays").hide();
     var id=$(this).val();
-    $(`#${id}`).show();
+    $(`#${id}`).fadeIn(500);
     
     // console.log($(this).val());
 });

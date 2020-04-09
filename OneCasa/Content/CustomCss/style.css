@@ -37,12 +37,22 @@ table thead{
     background-color:#696969;
     color: white;  
 }
+table td{
+    padding: 0px;
+    margin: 0px;
+   
+}
+
+table tr{
+    padding: 0px;
+    margin: 0px;
+   
+}
 
 table tbody tr:hover {
     background-color: 	#C0C0C0;
-    
-}
 
+}
 .loader{
     position: fixed;
 	left: 0;
@@ -56,8 +66,13 @@ table tbody tr:hover {
     display: none;
     background-color: rgba(255, 255, 255, .5);
 }
-
-
+.LeaveContainer{
+    max-width: 100%;
+}
+#viewLeaves{
+    overflow: auto
+}
 #ApplyLeaves,#LeavesStatus,#PublicHolidays,#PendingLeaves{
     display: none;
+    overflow: auto;
 }
