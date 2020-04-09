@@ -19,6 +19,10 @@ namespace OneCasa.Models.ViewModels
         
         
         
+        [DisplayName("Gender")]
+        [Required]
+        public string   Gender { get; set; }
+        
         [DisplayName("Reporting Manager")]
         [Required]
         [MaxLength(20),MinLength(3)]

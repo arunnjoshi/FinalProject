@@ -36,6 +36,7 @@ namespace OneCasa.DataAccess
         {
             DBParameters.Clear();
             AddParameter("@emp_Name",emp.EmpName);
+            AddParameter("@gender",emp.Gender);
             AddParameter("@EmailId",emp.Email);
             AddParameter("@DateOfBirth",emp.DateOfBirth);
             AddParameter("@DepId",1);
@@ -45,7 +46,7 @@ namespace OneCasa.DataAccess
             AddParameter("@Address",emp.Address);
             AddParameter("@state",emp.State);
             AddParameter("@country",emp.Country);
-            ExecuteNonQuery("AddEmployee");
+            ExecuteNonQuery("sp_AddEmployee");
         }
 
         public List<Department> GetDepartments()
@@ -69,6 +70,7 @@ namespace OneCasa.DataAccess
             List<EmployeeAddress> employee =  table.Tables[0].AsEnumerable().Select(emp=>new EmployeeAddress()
             {
                 EmpId = emp.Field<int>("emp_id"),
+                Gender = emp.Field<string>("gender"),
                 EmpName = emp.Field<string>("emp_name"),
                 Manager = emp.Field<string>("Manager"),
                 Department = emp.Field<int>("depId"),
@@ -88,6 +90,7 @@ namespace OneCasa.DataAccess
         {
             DBParameters.Clear();
             AddParameter("@emp_id",emp.EmpId);
+            AddParameter("@gender",emp.Gender);
             AddParameter("@emp_Name ",emp.EmpName);
             AddParameter("@EmailId ",emp.Email);
             AddParameter("@DateOfBirth ",emp.DateOfBirth);

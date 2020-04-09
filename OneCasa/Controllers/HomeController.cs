@@ -97,7 +97,7 @@ namespace OneCasa.Controllers
             try
             {
                 _objEmployeeService.EditEmployee(emp);
-                return RedirectToAction("GetEmployees");
+                return RedirectToAction("GetEmployees","Home");
             }
             catch (Exception e)
             {
