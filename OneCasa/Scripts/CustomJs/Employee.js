@@ -41,9 +41,9 @@ $("#search").keyup(function (e) {
                         <td>${emp.Department}</td>
                         <td>${emp.Email}</td>
                         <td>${emp.PhoneNumber}</td>
-                        <td>${emp.Manager}</td>
+                        <td>${emp.Manager}|<a class="btn btn-link" href="/home/EditEmployee?empid=${emp.EmpId}">Edit</a></td>
                      </tr>`
-                
+        
            }
            $("#Emp-tbody").html(html);
         });
@@ -60,7 +60,7 @@ $("#search").keyup(function (e) {
                              <td>${emp.Department}</td>
                              <td>${emp.Email}</td>
                              <td>${emp.PhoneNumber}</td>
-                             <td>${emp.Manager}</td>
+                             <td>${emp.Manager} |<a class="btn btn-link" href="/home/EditEmployee?empid=${emp.EmpId}">Edit</a></td>
                           </tr>`
                     
                 }

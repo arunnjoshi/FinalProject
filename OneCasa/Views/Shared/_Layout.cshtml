@@ -38,8 +38,8 @@
           leave
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Leave</a>
-          <a class="dropdown-item" href="#">Leave Ledge</a>
+          @Html.ActionLink("Leaves","Index","Leaves",null,new{@class="nav-link"})
+          @Html.ActionLink("Home","index","Home",null,new{@class="nav-link"})
         </div>
       </li>
     </ul>

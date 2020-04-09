@@ -42,6 +42,7 @@
     <ItemGroup>
         <Compile Include="BaseDataAccess.cs" />
         <Compile Include="EmplyeeRepopsitory.cs" />
+        <Compile Include="LeaveRepopsitory.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <ItemGroup>

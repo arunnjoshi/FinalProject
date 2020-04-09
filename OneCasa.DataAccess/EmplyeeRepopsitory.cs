@@ -89,6 +89,7 @@ namespace OneCasa.DataAccess
         public void EditEmployee(EmployeeAddress emp)
         {
             DBParameters.Clear();
+            
             AddParameter("@emp_id",emp.EmpId);
             AddParameter("@gender",emp.Gender);
             AddParameter("@emp_Name ",emp.EmpName);

@@ -19,7 +19,8 @@
     {
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.EmpId)</label>
-            @Html.TextBoxFor(e => e.EmpId, new {@class = "form-control",@readonly="readonly"})
+            @Html.HiddenFor(e=>e.EmpId)
+            @Html.TextBox("EmpId",Model.EmpId.ToString() ,new {@class = "form-control", @readonly = "readonly"})
             @Html.ValidationMessageFor(e => e.EmpName, "", new {@class = "text-danger"})
         </div>
         
@@ -33,7 +34,7 @@
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.Gender)</label>
             @Html.DropDownListFor(e => e.Gender, gender as SelectList, "select Gender", new {@class = "form-control"})
-            @Html.ValidationMessageFor(e => e.Email, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(e => e.Gender, "", new {@class = "text-danger"})
         </div>
         
         

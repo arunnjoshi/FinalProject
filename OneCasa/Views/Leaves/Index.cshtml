@@ -1,8 +1,57 @@
-﻿@model TModel
-
+﻿@model IEnumerable<OneCasa.Models.ViewModels.PublicHolidays>
 @{
     ViewBag.Title = "title";
-    Layout = "_Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container  shadow p-3 mb-5 bg-white rounded">
+    <div align="center" class="LeavesIndex">
+        <button type="button" class="btn btn-light LeaveMenu" value="viewLeaves">View Leaves</button>
+        <button type="button" class="btn btn-light LeaveMenu" value="ApplyLeaves">Apply Leaves</button>
+        <button type="button" class="btn btn-light LeaveMenu" value="PendingLeaves">Pending Leaves</button>
+        <button type="button" class="btn btn-light LeaveMenu" value="LeavesStatus">Approved/Pending/Canceled Leaves</button>
+        <button type="button" class="btn btn-light LeaveMenu" value="PublicHolidays">Public Holidays List</button>
+    </div>
+    <div id="viewLeaves">
+        <h1>View Leaves</h1>
+    </div>
+    
+    
+    
+    <div id="ApplyLeaves" >
+        <h1>Apply Leaves</h1>
+    </div>
+    
+    
+    <div id="PendingLeaves">
+        <h1>PendingLeaves</h1>
+    </div>
+    
+    
+    
+    
+    <div id="LeavesStatus">
+        <h1>Leaves Status</h1>
+    </div>
+    
+    <div id="PublicHolidays" class="container">
+        <h4 class="text-center">Public holidays</h4>
+        <table class="table table-bordered">
+            <thead>
+                <th>Name</th>
+                <th>Date</th>
+            </thead>
+            <tbody>
+                @foreach (var holiday in Model )
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(h=>holiday.Name)</td>
+                        <td>@holiday.Date.DayOfWeek.ToString().Substring(0,3) @holiday.Date.Day/@holiday.Date.Month/@holiday.Date.Year</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
 
-<h2>title</h2>
+
+<script src="~/Scripts/CustomJs/Leave.js"></script>

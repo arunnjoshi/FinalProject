@@ -40,6 +40,7 @@
         </e>
         <e p="Controllers" t="Include">
           <e p="HomeController.cs" t="Include" />
+          <e p="LeavesController.cs" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="Global.asax" t="Include" />
@@ -62,6 +63,7 @@
           <e p="CustomJs" t="Include">
             <e p="app.js" t="Include" />
             <e p="Employee.js" t="Include" />
+            <e p="Leave.js" t="Include" />
           </e>
           <e p="esm" t="Include">
             <e p="popper-utils.js" t="Include" />
@@ -190,6 +192,9 @@
             <e p="GetEmployees.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
+          <e p="Leaves" t="Include">
+            <e p="Index.cshtml" t="Include" />
+          </e>
           <e p="Shared" t="Include">
             <e p="_Layout.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
@@ -204,6 +209,7 @@
         <e p="BaseBusinessAccess.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="EmployeeService.cs" t="Include" />
+        <e p="LeaveServices.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="OneCasa.BusinessAccess.csproj" t="IncludeRecursive" />
         <e p="Properties" t="Include">
@@ -214,6 +220,7 @@
         <e p="BaseDataAccess.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="EmplyeeRepopsitory.cs" t="Include" />
+        <e p="LeaveRepopsitory.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="OneCasa.DataAccess.csproj" t="IncludeRecursive" />
         <e p="packages.config" t="Include" />
@@ -232,6 +239,7 @@
           <e p="Department.cs" t="Include" />
           <e p="Employee.cs" t="Include" />
           <e p="EmployeeAddress.cs" t="Include" />
+          <e p="PublicHolidays.cs" t="Include" />
         </e>
       </e>
       <e p="OneCasa.sln" t="IncludeFlat" />

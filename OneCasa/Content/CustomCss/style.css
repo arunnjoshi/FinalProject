@@ -24,7 +24,7 @@ body {
     text-align: center;
     
 }
-#Emp-table
+table
 {
     position: relative;
 }
@@ -33,21 +33,20 @@ body {
     max-height: 500px;
     overflow:auto;
 }
-
-#Emp-table thead{
+table thead{
     background-color:#696969;
     color: white;  
 }
 
-#Emp-table tbody tr:hover {
+table tbody tr:hover {
     background-color: 	#C0C0C0;
     
 }
 
 .loader{
     position: fixed;
-	left: 0px;
-	top: 0px;
+	left: 0;
+	top: 0;
 	width: 100%;
 	height: 100%;
     z-index: 9999;
@@ -56,4 +55,9 @@ body {
     background-position: 50%;
     display: none;
     background-color: rgba(255, 255, 255, .5);
+}
+
+
+#ApplyLeaves,#LeavesStatus,#PublicHolidays,#PendingLeaves{
+    display: none;
 }

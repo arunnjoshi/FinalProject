@@ -104,8 +104,7 @@ namespace OneCasa.Controllers
                 return RedirectToAction("EditEmployee","Home",new {emp.EmpId});
             }
         }
-        
-        
+
     }
     
 }
