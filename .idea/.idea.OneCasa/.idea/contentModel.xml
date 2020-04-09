@@ -184,7 +184,9 @@
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
             <e p="About.cshtml" t="Include" />
+            <e p="AddEmployee.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />
+            <e p="EditEmployee.cshtml" t="Include" />
             <e p="GetEmployees.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
@@ -227,6 +229,7 @@
           <e p="AssemblyInfo.cs" t="Include" />
         </e>
         <e p="ViewModels" t="Include">
+          <e p="Department.cs" t="Include" />
           <e p="Employee.cs" t="Include" />
           <e p="EmployeeAddress.cs" t="Include" />
         </e>

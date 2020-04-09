@@ -3,3 +3,8 @@ D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\OneCasa.Models.pdb
 D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.csprojAssemblyReference.cache
 D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.dll
 D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.pdb
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\EntityFramework.dll
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\EntityFramework.SqlServer.dll
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\EntityFramework.xml
+D:\SqlOneCasa\OneCasa\OneCasa.Models\bin\Debug\EntityFramework.SqlServer.xml
+D:\SqlOneCasa\OneCasa\OneCasa.Models\obj\Debug\OneCasa.Models.csproj.CopyComplete

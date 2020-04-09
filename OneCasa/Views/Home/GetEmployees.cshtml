@@ -35,7 +35,10 @@
                 <td>@emp.Department</td>
                 <td>@emp.Email</td>
                 <td>@emp.PhoneNumber</td>
-                <td>@emp.Manager</td>
+                <td>
+                    @emp.Manager 
+                    |@Html.ActionLink("Edit","EditEmployee","home",new{empid=emp.EmpId},new {@class="btn btn-link"})
+                </td>
             </tr>
         }
         </tbody>

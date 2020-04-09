@@ -111,3 +111,7 @@ D:\SqlOneCasa\OneCasa\OneCasa\bin\Google.Apis.pdb
 D:\SqlOneCasa\OneCasa\OneCasa\bin\Google.Apis.xml
 D:\SqlOneCasa\OneCasa\OneCasa\bin\Google.Apis.Core.pdb
 D:\SqlOneCasa\OneCasa\OneCasa\bin\Google.Apis.Core.xml
+D:\SqlOneCasa\OneCasa\OneCasa\bin\EntityFramework.dll
+D:\SqlOneCasa\OneCasa\OneCasa\bin\EntityFramework.SqlServer.dll
+D:\SqlOneCasa\OneCasa\OneCasa\bin\EntityFramework.xml
+D:\SqlOneCasa\OneCasa\OneCasa\bin\EntityFramework.SqlServer.xml

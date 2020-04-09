@@ -42,6 +42,14 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
+        <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+          <Private>True</Private>
+        </Reference>
         <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1">
           <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
           <Private>True</Private>
@@ -322,6 +330,8 @@
         <Content Include="Scripts\umd\popper.js.map" />
         <Content Include="Scripts\umd\popper.min.js" />
         <Content Include="Scripts\umd\popper.min.js.map" />
+        <Content Include="Views\Home\AddEmployee.cshtml" />
+        <Content Include="Views\Home\EditEmployee.cshtml" />
         <Content Include="Views\Home\GetEmployees.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">

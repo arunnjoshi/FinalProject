@@ -42,7 +42,7 @@ namespace OneCasa.BusinessAccess
         public List<Employee> UpcomigBirthDays()
         {
             List<Employee> employees = GetEmployeeData().Where(e=>
-                e.DateOfBirth.Day >= DateTime.Now.Day && e.DateOfBirth.Day < DateTime.Now.Day+10 ).ToList();
+                e.DateOfBirth.Day >= DateTime.Now.Day && e.DateOfBirth.Day < DateTime.Now.Day+10 && e.DateOfBirth.Month == DateTime.Today.Month).ToList();
             if (DateTime.Now.Date.Day>25)
             {
                 List<Employee> newEmp = GetEmployeeData().Where(e => e.DateOfBirth.Month == DateTime.Now.Month+1 && e.DateOfBirth.Day <=5)
@@ -115,6 +115,53 @@ namespace OneCasa.BusinessAccess
             }
             return employees.OrderByDescending(e=>e.JoinDate).ThenBy(e=>e.EmpName).ToList();
         }
+
+        public void AddEmployee(EmployeeAddress emp)
+        {
+            this.operation = () =>
+            {
+                EmplyeeRepopsitory access = new EmplyeeRepopsitory(this.Transaction);
+                access.AddEmployee(emp);
+            };
+            this.Start(false);
+        }
+
+        public List<Department> GetDepartments()
+        {
+            List<Department> departments = new List<Department>();
+            this.operation = () =>
+            {
+                EmplyeeRepopsitory access = new EmplyeeRepopsitory(this.Transaction);
+                departments = access.GetDepartments();
+            };
+            this.Start(false);
+            return departments;
+        }
+
+
+        public EmployeeAddress GetEmployee(int id)
+        {
+            EmployeeAddress emp=new EmployeeAddress();
+            this.operation = () =>
+            {
+                EmplyeeRepopsitory access = new EmplyeeRepopsitory(this.Transaction);
+                emp = access.GetEmployee(id).FirstOrDefault();
+
+            };
+            this.Start(false);
+            return emp;
+        }
+
+        public void EditEmployee(EmployeeAddress emp)
+        {
+            this.operation = () =>
+            {
+                EmplyeeRepopsitory access = new EmplyeeRepopsitory(this.Transaction);
+                access.EditEmployee(emp);
+            };
+            this.Start(false);
+        }
+
 
     }
 }
