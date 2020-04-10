@@ -22,7 +22,7 @@ namespace OneCasa.Controllers
         [HttpGet]
         public JsonResult GetUpcomingBirthDays()
         {
-            var emp = _objEmployeeService.UpcomigBirthDays().OrderBy(e=>e.DateOfBirth);
+            var emp = _objEmployeeService.UpcomigBirthDays();
             return Json(emp, JsonRequestBehavior.AllowGet);
         }
         [HttpGet]

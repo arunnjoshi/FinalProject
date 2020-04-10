@@ -8,3 +8,13 @@ D:\SqlOneCasa\OneCasa\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.cs
 D:\SqlOneCasa\OneCasa\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.csproj.CopyComplete
 D:\SqlOneCasa\OneCasa\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.dll
 D:\SqlOneCasa\OneCasa\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.pdb
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.BusinessAccess.dll
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.BusinessAccess.pdb
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.DataAccess.dll
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.Models.dll
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.DataAccess.pdb
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\bin\Debug\OneCasa.Models.pdb
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.csprojAssemblyReference.cache
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.csproj.CopyComplete
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.dll
+D:\SqlOneCasa\FinalProject\OneCasa.BusinessAccess\obj\Debug\OneCasa.BusinessAccess.pdb
