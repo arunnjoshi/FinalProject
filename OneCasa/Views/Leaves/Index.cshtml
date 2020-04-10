@@ -16,14 +16,14 @@
     <div id="viewLeaves">
         <table class="table  table-bordered">
             <thead>
-            <th>Department Name</th>
-            <th>Employee Name</th>
+            <td>Department Name</td>
+            <td>Employee Name</td>
             @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
             {
-                <th>
-                    @months[@d.Month]
+                <td>
+                    @months[@d.Month -1 ].Substring(0,3)
                     @d.GetDateTimeFormats()[2].Substring(3,2)
-                </th>
+                </td>
             }
             </thead>
             <tbody>
@@ -34,7 +34,14 @@
                         <td></td>
                         @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
                         {
-                            <td>@i</td>
+                            if (d.DayOfWeek.ToString().Equals( "Saturday") || d.DayOfWeek.ToString().Equals( "Sunday"))
+                            {
+                                <td style="background-color: #E7E7EE; border: 0"></td>
+                            }
+                            else
+                            {
+                                <td style="background-color: orangered;" >@d.DayOfWeek.ToString().Substring(0,1)</td>
+                            }
                         }
                     </tr>
                 }
@@ -65,8 +72,8 @@
         <h4 class="text-center">Public holidays</h4>
         <table class="table table-bordered">
             <thead>
-                <th>Name</th>
-                <th>Date</th>
+                <td>Name</td>
+                <td>Date</td>
             </thead>
             <tbody>
                 @foreach (var holiday in ViewBag.PubluicHolidays )

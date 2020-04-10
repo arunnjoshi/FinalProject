@@ -7,24 +7,24 @@
     </div>    <div  class="table-responsive">
     <table class="table clr table-bordered" id="Emp-table">
         <thead>
-        <th>
+        <td>
             @Html.DisplayNameFor(e => e.EmpId)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(e => e.EmpName)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(e => e.Department)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(e => e.Email)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(e => e.PhoneNumber)
-        </th>
-        <th>
+        </td>
+        <td>
             @Html.DisplayNameFor(e => e.Manager)
-        </th>
+        </td>
         </thead>
         <tbody id="Emp-tbody">
         @foreach (var emp in Model)

@@ -21,7 +21,7 @@
             <label>@Html.DisplayNameFor(e => e.EmpId)</label>
             @Html.HiddenFor(e=>e.EmpId)
             @Html.TextBox("EmpId",Model.EmpId.ToString() ,new {@class = "form-control", @readonly = "readonly"})
-            @Html.ValidationMessageFor(e => e.EmpName, "", new {@class = "text-danger"})
+            @Html.ValidationMessageFor(e => e.EmpId, "", new {@class = "text-danger"})
         </div>
         
         <div class="form-group">
