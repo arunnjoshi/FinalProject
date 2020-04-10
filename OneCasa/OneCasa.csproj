@@ -336,6 +336,7 @@
         <Content Include="Views\Home\EditEmployee.cshtml" />
         <Content Include="Views\Home\GetEmployees.cshtml" />
         <Content Include="Views\Leaves\Index.cshtml" />
+        <Content Include="Views\Leaves\_ApplyLeave.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">
             <DependentUpon>Web.config</DependentUpon>

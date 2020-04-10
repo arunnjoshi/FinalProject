@@ -18,7 +18,8 @@ namespace OneCasa.Controllers
         {
             List<PublicHolidays> publicHolidayses =new List<PublicHolidays>();
             publicHolidayses = _leaveServices.GetPublicHolidays();
-            return View("Index",publicHolidayses);
+            ViewBag.PubluicHolidays = publicHolidayses;
+            return View("Index");
         }
     }
 }

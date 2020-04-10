@@ -51,6 +51,7 @@
     <Compile Include="ViewModels\Department.cs" />
     <Compile Include="ViewModels\Employee.cs" />
     <Compile Include="ViewModels\EmployeeAddress.cs" />
+    <Compile Include="ViewModels\Leave.cs" />
     <Compile Include="ViewModels\PublicHolidays.cs" />
   </ItemGroup>
   <ItemGroup>

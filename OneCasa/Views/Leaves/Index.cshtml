@@ -1,5 +1,4 @@
 ﻿@using OfficeOpenXml.FormulaParsing.Excel.Functions.DateTime
-@model IEnumerable<OneCasa.Models.ViewModels.PublicHolidays>
 @{
     ViewBag.Title = "title";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -17,11 +16,13 @@
     <div id="viewLeaves">
         <table class="table  table-bordered">
             <thead>
+            <th>Department Name</th>
+            <th>Employee Name</th>
             @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
             {
                 <th>
                     @months[@d.Month]
-                    @d.Day
+                    @d.GetDateTimeFormats()[2].Substring(3,2)
                 </th>
             }
             </thead>
@@ -29,10 +30,12 @@
                 @for (int i = 0; i < 10; i++)
                 {
                     <tr>
-                          @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
-                                    {
-                                        <td>@i</td>
-                                    }
+                        <td></td>
+                        <td></td>
+                        @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
+                        {
+                            <td>@i</td>
+                        }
                     </tr>
                 }
             </tbody>
@@ -42,7 +45,8 @@
     
     
     <div id="ApplyLeaves" >
-        <h1>Apply Leaves</h1>
+        <h1 class="text-center">Apply Leaves</h1>
+        @Html.Partial("_ApplyLeave")
     </div>
     
     
@@ -65,10 +69,10 @@
                 <th>Date</th>
             </thead>
             <tbody>
-                @foreach (var holiday in Model )
+                @foreach (var holiday in ViewBag.PubluicHolidays )
                 {
                     <tr>
-                        <td>@Html.DisplayFor(h=>holiday.Name)</td>
+                        <td>@holiday.Name</td>
                         <td>@holiday.Date.DayOfWeek.ToString().Substring(0,3) @holiday.Date.Day/@holiday.Date.Month/@holiday.Date.Year</td>
                     </tr>
                 }

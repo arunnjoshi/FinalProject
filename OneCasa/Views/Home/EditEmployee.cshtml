@@ -40,7 +40,7 @@
         
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.Email)</label>
-            @Html.TextBoxFor(e => e.Email, new {@class = "form-control", @PlaceHolder = "Employee Name", type = "email"})
+            @Html.TextBoxFor(e => e.Email, new {@class = "form-control", @PlaceHolder = "Email", type = "email"})
             @Html.ValidationMessageFor(e => e.Email, "", new {@class = "text-danger"})
 
         </div>
@@ -48,7 +48,7 @@
         
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.Manager)</label>
-            @Html.TextBoxFor(e => e.Manager, new {@class = "form-control", @PlaceHolder = "Employee Name"})
+            @Html.TextBoxFor(e => e.Manager, new {@class = "form-control", @PlaceHolder = "Manager"})
             @Html.ValidationMessageFor(e => e.Manager, "", new {@class = "text-danger"})
         </div>
         
