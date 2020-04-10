@@ -12,13 +12,11 @@ namespace OneCasa
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
             routes.MapRoute(
-                name: "LeavesController",
-                url: "Leaves/{action}/{id}",
-                defaults: new {controller = "Leaves", action = "Index", id = UrlParameter.Optional}
+                name: "LeaveDefaults",
+                url: "controller/ApplyLeave/{leave}",
+                defaults: new {controller = "Leaves", action = "ApplyLeave", }
             );
-
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

@@ -30,5 +30,23 @@ namespace OneCasa.DataAccess
             }).OrderBy(h=>h.Date).ToList();
             return holidayses;
         }
+
+
+        public void ApplyLeave(Leave leave)
+        {
+            DBParameters.Clear();
+
+            AddParameter("@empId",leave.EmpId);
+            AddParameter("@fromDate",leave.FromDate);
+            AddParameter("@todate",leave.ToDate);
+            AddParameter("@daycount",leave.ToDate.Day - leave.FromDate.Day);
+            AddParameter("@comment",leave.Comment);
+            AddParameter("@leaveType",leave.LeaveType);
+            AddParameter("@leaveStatus","pending");
+            AddParameter("@StartTime",DateTime.Now.TimeOfDay);
+            AddParameter("@EndTime",DateTime.Now.TimeOfDay);
+
+            ExecuteNonQuery("sp_ApplyLeave");
+        }
     }
 }

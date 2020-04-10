@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace OneCasa.Models.ViewModels
@@ -6,6 +7,7 @@ namespace OneCasa.Models.ViewModels
     public class Leave
     {
         [Required]
+        [DisplayName("Employee Id")]
         public int EmpId { get; set; }
         
         
@@ -25,25 +27,27 @@ namespace OneCasa.Models.ViewModels
         
         
         
-
-        public string Status { get; set; }
-        
-        
-        
         
         [Required]
+        [DisplayName("Leave Type")]
+
         public string LeaveType { get; set; }
         
         
         [Required]
+        [DisplayName("From Date")]
+
         public DateTime FromDate { get; set; }
         
         
         [Required]
+        [DisplayName("To Date")]
         public DateTime ToDate { get; set; }
 
 
         [Required]
+        [DisplayName("Comment")]
+
         [MinLength(10 ,ErrorMessage = "Min Letters 10"),MaxLength(100,ErrorMessage = "Max Letters 100")]
         public string Comment { get; set; }
     }

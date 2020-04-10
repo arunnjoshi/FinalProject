@@ -15,7 +15,7 @@
 
 }
 <div class="container">
-    @using (Html.BeginForm("Index", "Leaves", null, FormMethod.Post, new {@class = "form-horizontal"}))
+    @using (Html.BeginForm("ApplyLeave", "Leaves",null, FormMethod.Post, new {@class = "form-horizontal"}))
     {
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.EmpId)</label>
@@ -31,7 +31,7 @@
         
         <div class="form-group">
             <label>@Html.DisplayNameFor(e => e.FromDate)</label>
-            @Html.TextBoxFor(e => e.FromDate,"{0:yyyy-MM-dd}",new
+            @Html.TextBoxFor(e => e.FromDate,"",new
             {
                 @class = "form-control",  type = "date",
                 Value = $"{DateTime.Now.Year}-{@DateTime.Now.GetDateTimeFormats()[2].Substring(0,2)}-{@DateTime.Now.GetDateTimeFormats()[2].Substring(3,2)}"

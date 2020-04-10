@@ -17,6 +17,17 @@ namespace OneCasa.BusinessAccess
             this.Start(false);
             return holidayses;
         }
+
+
+        public void ApplyLeave(Leave leave)
+        {
+            this.operation = () =>
+            {
+                LeaveRepopsitory access = new LeaveRepopsitory(this.Transaction);
+                access.ApplyLeave(leave);
+            };
+            this.Start(false);
+        }
         
     }
 }

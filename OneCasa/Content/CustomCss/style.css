@@ -69,7 +69,7 @@ table tbody tr:hover {
     background-color: rgba(255, 255, 255, .5);
 }
 .LeaveContainer{
-    max-width: 100%;
+    max-width: 95%;
 }
 #viewLeaves{
     overflow: auto
@@ -77,4 +77,14 @@ table tbody tr:hover {
 #ApplyLeaves,#LeavesStatus,#PublicHolidays,#PendingLeaves{
     display: none;
     overflow: auto;
+}
+
+.LeavesIndex ul{
+    margin: auto;
+}
+
+.LeavesIndex ul li {
+    list-style: none;
+    float: left;
+    margin: 0 2%;
 }

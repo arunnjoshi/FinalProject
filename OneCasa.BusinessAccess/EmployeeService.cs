@@ -41,79 +41,37 @@ namespace OneCasa.BusinessAccess
 
         public List<Employee> UpcomigBirthDays()
         {
-            List<Employee> employees = GetEmployeeData().Where(e=>
-                e.DateOfBirth.Day >= DateTime.Now.Day && e.DateOfBirth.Day < DateTime.Now.Day+10 && e.DateOfBirth.Month == DateTime.Today.Month).ToList();
-            if (DateTime.Now.Date.Day>25)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e => e.DateOfBirth.Month == DateTime.Now.Month+1 && e.DateOfBirth.Day <=5)
-                    .ToList();
-                employees.AddRange(newEmp);
-            }
+            var employees = GetEmployeeData().Where(e=> new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) <= DateTime.Now.AddDays(10) && 
+                                                    new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) >= DateTime.Now).OrderBy(e=>e.DateOfBirth.Month).ThenBy(e=>e.DateOfBirth.Day).ThenBy(e=>e.EmpName).ToList();
             return employees;
         }
         public List<Employee> PastBirthDays()
         {
-            List<Employee> employees=new List<Employee>();
-            if (DateTime.Now.Day <= 5)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e => 
-                    (e.DateOfBirth.Month == DateTime.Now.Month-1 && e.DateOfBirth.Day >= 25) 
-                ).ToList();
-                employees.AddRange(newEmp);
-            }
-            if (DateTime.Now.Day <= 10)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e=>e.DateOfBirth.Month == DateTime .Now.Month && e.DateOfBirth.Day < DateTime.Now.Day).ToList();
-                employees.AddRange(newEmp);
-            }
-            else
-            {
-              employees  = GetEmployeeData().Where(e
-                    =>e.DateOfBirth.Day < DateTime.Now.Day && e.DateOfBirth.Day < DateTime.Now.Day-10).ToList();
-            }
-            return employees.OrderByDescending(x=>x.DateOfBirth).ToList();
+            List<Employee> employees = new List<Employee>();
+
+             // employee = GetEmployeeData()
+             //    .Where(e => e.DateOfBirth <= DateTime.Now && e.DateOfBirth >= DateTime.Now.AddDays(-11)).OrderByDescending(e=>e.DateOfBirth).ToList();
+            return employees;
         }
 
         public List<Employee> UpcomingAnniversary()
         {
-            List<Employee> employees = GetEmployeeData().Where(e=>
-                e.JoinDate.Day >= DateTime.Now.Day 
-                                     && e.JoinDate.Day < (DateTime.Now.Day+10)
-                                     && e.JoinDate.Year != DateTime.Now.Year
-                ).ToList();
-            if (DateTime.Now.Day>25)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e=> 
-                    e.JoinDate.Month == DateTime.Now.Month+1 
-                                                        && e.JoinDate.Day <= 5
-                    ).OrderBy(e=>e.JoinDate).ThenBy(e=>e.EmpName).ToList();
-                employees.AddRange(newEmp);
-            }
+           
+
+            var employees=GetEmployeeData().Where(e=> new DateTime(DateTime.Now.Year,e.JoinDate.Month,e.JoinDate.Day) <= DateTime.Now.AddDays(10) && 
+                                                  new DateTime(DateTime.Now.Year,e.JoinDate.Month,e.JoinDate.Day) >= DateTime.Now && e.JoinDate.Year < DateTime.Now.Year)
+                                                  .OrderBy(e=>e.JoinDate.Month).ThenBy(e=>e.JoinDate.Day).ToList();
+
             return employees;
         }
-
         public List<Employee> PastAnniversary()
         {
-            List<Employee> employees=new List<Employee>();
-            if (DateTime.Now.Day <= 5)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e => 
-                    (e.JoinDate.Month == DateTime.Now.Month-1 && e.JoinDate.Day >= 25) 
-                ).ToList();
-                employees.AddRange(newEmp);
-            }
-            
-            if (DateTime.Now.Day <= 10)
-            {
-                List<Employee> newEmp = GetEmployeeData().Where(e=>e.JoinDate.Month == DateTime .Now.Month && e.JoinDate.Day < DateTime.Now.Day).ToList();
-                employees.AddRange(newEmp);
-            }
-            else
-            {
-                employees  = GetEmployeeData().Where(e
-                    =>e.JoinDate.Day < DateTime.Now.Day && e.JoinDate.Day < DateTime.Now.Day-10).ToList();
-            }
-            return employees.OrderByDescending(e=>e.JoinDate).ThenBy(e=>e.EmpName).ToList();
+            List<Employee> employees = new List<Employee>();
+
+             // employees = GetEmployeeData()
+             //    .Where(e =>  e.JoinDate >= DateTime.Now.AddDays(-11)).ToList();
+               
+           return employees;
         }
 
         public void AddEmployee(EmployeeAddress emp)

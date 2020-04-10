@@ -6,12 +6,15 @@
         "June", "July", "August", "September", "October", "November", "December"};
 }
 <div class="container  shadow p-3 mb-5 bg-white rounded LeaveContainer">
-    <div align="center" class="LeavesIndex">
-        <button type="button" class="btn btn-light LeaveMenu" value="viewLeaves">View Leaves</button>
-        <button type="button" class="btn btn-light LeaveMenu" value="ApplyLeaves">Apply Leaves</button>
-        <button type="button" class="btn btn-light LeaveMenu" value="PendingLeaves">Pending Leaves</button>
-        <button type="button" class="btn btn-light LeaveMenu" value="LeavesStatus">Approved/Pending/Canceled Leaves</button>
-        <button type="button" class="btn btn-light LeaveMenu" value="PublicHolidays">Public Holidays List</button>
+    <div  class="LeavesIndex container">
+        <ul>
+            <li><button type="button" class="btn btn-light LeaveMenu" value="viewLeaves">View Leaves</button></li>
+            <li><button type="button" class="btn btn-light LeaveMenu" value="ApplyLeaves">Apply Leaves</button></li>
+            <li><button type="button" class="btn btn-light LeaveMenu" value="PendingLeaves">Pending Leaves</button></li>
+            <li><button type="button" class="btn btn-light LeaveMenu" value="LeavesStatus">Approved/Pending/Canceled Leaves</button></li>
+            <li><button type="button" class="btn btn-light LeaveMenu" value="PublicHolidays">Public Holidays List</button></li>
+        </ul>
+        <div class="clr"></div>
     </div>
     <div id="viewLeaves">
         <table class="table  table-bordered">
