@@ -61,9 +61,12 @@ table
 }
 #Emp-table-div
 {
-    max-height: 500px;
+    max-height: 1200px;
     overflow:auto;
+    float: left;width: 75%;
+    margin-left: 30px
 }
+
 table thead td{
     background-color:#999;
     color: #666;
@@ -85,6 +88,10 @@ table tr{
 table tbody tr:hover {
     background-color: 	#C0C0C0;
 
+}
+
+.leave-table tbody tr:hover:nth-child(odd){
+    background-color: #828282
 }
 .loader{
     position: fixed;

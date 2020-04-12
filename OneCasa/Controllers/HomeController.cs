@@ -19,6 +19,13 @@ namespace OneCasa.Controllers
         {
             return View();
         }
+
+        public ActionResult GetEvents()
+        {
+            return View("_Events");
+        }
+        
+        
         [HttpGet]
         public JsonResult GetUpcomingEvents()
         {

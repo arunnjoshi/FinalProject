@@ -186,6 +186,7 @@
         <e p="Views" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
           <e p="Home" t="Include">
+            <e p="_Events.cshtml" t="Include" />
             <e p="About.cshtml" t="Include" />
             <e p="AddEmployee.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />

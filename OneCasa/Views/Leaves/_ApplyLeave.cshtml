@@ -9,7 +9,7 @@
         new ListItem{Text = "Half Day",Value = "halfday"},
         new ListItem{Text = "Birth Day",Value = "birthday"},
         new ListItem{Text = "Paternity",Value = "Paternity"},
-    };
+          };
     SelectList leaveType = new SelectList(list,"value","text");
     Layout = "";
 
@@ -18,9 +18,9 @@
     @using (Html.BeginForm("ApplyLeave", "Leaves",null, FormMethod.Post, new {@class = "form-horizontal"}))
     {
         <div class="form-group">
-            <label>@Html.DisplayNameFor(e => e.EmpId)</label>
-            @Html.TextBoxFor(e => e.EmpId, new {@class = "form-control", @PlaceHolder = "Employee Id"})
-            @Html.ValidationMessageFor(e => e.EmpId, "", new {@class = "text-danger"})
+            <label>@Html.DisplayNameFor(e => e.Email)</label>
+            @Html.TextBoxFor(e => e.Email, new {@class = "form-control", @PlaceHolder = "Email Id",type="email"})
+            @Html.ValidationMessageFor(e => e.Email, "", new {@class = "text-danger"})
         </div>
         
         <div class="form-group">

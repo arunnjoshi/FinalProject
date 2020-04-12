@@ -12,8 +12,8 @@
 
 $(".leave-cell").click(function (e) { 
     e.preventDefault();
-    console.log($(this).children()[0].innerHTML);
+    // console.log($(this).children()[0].innerHTML);
     $("#aboutLeaveModal .modal-body").html($(this).children()[0].innerHTML);
-    $("#aboutLeaveModal").modal();
+    $("#aboutLeaveModal").modal('show');
 });
 

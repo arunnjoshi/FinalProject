@@ -36,10 +36,10 @@ namespace OneCasa.DataAccess
         {
             DBParameters.Clear();
 
-            AddParameter("@empId",leave.EmpId);
+            AddParameter("@emailId",leave.Email);
             AddParameter("@fromDate",leave.FromDate);
             AddParameter("@toDate",leave.ToDate);
-            AddParameter("@dayCount",leave.ToDate.Day - leave.FromDate.Day);
+            AddParameter("@dayCount",DayCount(leave.FromDate,leave.ToDate));
             AddParameter("@comment",leave.Comment);
             AddParameter("@leaveType",leave.LeaveType);
             AddParameter("@leaveStatus","pending");
@@ -49,6 +49,23 @@ namespace OneCasa.DataAccess
             ExecuteNonQuery("sp_ApplyLeave");
         }
         
+        
+        public int DayCount(DateTime startDate,DateTime endDate)
+        {
+            int count = 1;
+            while (startDate != endDate)
+            {
+                if (startDate.DayOfWeek.ToString() == "Saturday" || startDate.DayOfWeek.ToString() == "Sunday")
+                {
+                    startDate=startDate.AddDays(1);
+                    continue;
+                }
+                count += 1;
+                startDate=startDate.AddDays(1);
+            }
+
+            return count;
+        }
         
         public List<Leave> GetApplyedLeaves()
         {
@@ -71,5 +88,7 @@ namespace OneCasa.DataAccess
 
             return leaves;
         }
+
+        
     }
 }

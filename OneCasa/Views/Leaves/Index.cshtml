@@ -30,10 +30,10 @@
         <div class="clr"></div>
     </div>
     <div id="viewLeaves">
-        <table class="table  table-bordered table-striped">
+        <table class="table  table-bordered table-striped leave-table">
             <thead>
+            <td>EmployeeName</td>
             <td>Department Name</td>
-            <td>Employee Name</td>
             @for (var d = DateTime.Now.AddDays(-15); d <= DateTime.Now.AddDays(15); d = d.AddDays(1))
             {
                 <td>
@@ -75,10 +75,18 @@
                                                       <td>@leave.LeaveType</td>
                                                   </tr>
                                                   <tr>
-                                                      <th>From/ToDate</th>
+                                                      <th>From Date/To Date</th>
                                                       <td>
-                                                          @leave.FromDate.GetDateTimeFormats()[1] To @leave.ToDate.GetDateTimeFormats()[1]<br/>
-                                                          @leave.DayCount Day
+                                                          @{
+                                                              string str = @leave.DayCount>1 ? "day's" : "day";
+                                                              int i = 0;
+                                                          }
+                                                          @leave.FromDate.GetDateTimeFormats()[99] To @leave.ToDate.GetDateTimeFormats()[99]<br/>
+@*                                                           @for( i=0;i < 133;i+=1) *@
+@*                                                           { *@
+@*                                                                <span>@i</span> @leave.ToDate.GetDateTimeFormats()[i]; <br> *@
+@*                                                           } *@
+                                                          @leave.DayCount office @str 
                                                       </td> 
                                                   </tr>
                                                   <tr>
@@ -106,7 +114,7 @@
     
     <div id="ApplyLeaves" >
         <h1 class="text-center">Apply Leaves</h1>
-        @Html.Action("ApplyLeave", "Leaves");
+        @Html.Action("ApplyLeave", "Leaves")
         
     </div>
     
