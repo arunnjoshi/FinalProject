@@ -21,5 +21,9 @@ namespace OneCasa.Models.ViewModels
         public DateTime JoinDate { get; set; }
         [DisplayName("Mobile Number")]
         public Int64 PhoneNumber { get; set; }
+
+
+        public string EventName { get; set; }
+        public DateTime EventDate { get; set; }
     }
 }

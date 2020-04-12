@@ -20,27 +20,16 @@ namespace OneCasa.Controllers
             return View();
         }
         [HttpGet]
-        public JsonResult GetUpcomingBirthDays()
+        public JsonResult GetUpcomingEvents()
         {
-            var emp = _objEmployeeService.UpcomigBirthDays();
+            var emp = _objEmployeeService.GetUpcomingEvents();
             return Json(emp, JsonRequestBehavior.AllowGet);
         }
+        
         [HttpGet]
-        public JsonResult GetUpcomingAnniversary()
+        public JsonResult GetPastEvents()
         {
-            var emp = _objEmployeeService.UpcomingAnniversary();
-            return Json(emp, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet]
-        public JsonResult GetPastBirthDays()
-        {
-            var emp=_objEmployeeService.PastBirthDays();
-            return Json(emp, JsonRequestBehavior.AllowGet);
-        }
-        [HttpGet]
-        public JsonResult GetPastAnniversary()
-        {
-            var emp = _objEmployeeService.PastAnniversary();
+            var emp=_objEmployeeService.GetPastEvents();
             return Json(emp, JsonRequestBehavior.AllowGet);
         }
 

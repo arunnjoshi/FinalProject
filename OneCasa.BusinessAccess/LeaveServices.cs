@@ -28,6 +28,18 @@ namespace OneCasa.BusinessAccess
             };
             this.Start(false);
         }
+        public List<Leave> GetApplyedLeaves()
+        {
+            List<Leave>  leave = new List<Leave>();
+            this.operation = () =>
+            {
+                LeaveRepopsitory access = new LeaveRepopsitory(this.Transaction);
+                 leave = access.GetApplyedLeaves();
+            };
+            this.Start(false);
+            return leave;
+        }
         
+
     }
 }

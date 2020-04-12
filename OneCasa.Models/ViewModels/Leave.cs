@@ -9,10 +9,10 @@ namespace OneCasa.Models.ViewModels
         [Required]
         [DisplayName("Employee Id")]
         public int EmpId { get; set; }
-        
-        
-        
-        
+
+
+
+        public int DayCount { get; set; }
         public string EmpName { get; set; }
         
         

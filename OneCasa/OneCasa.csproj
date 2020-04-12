@@ -214,6 +214,7 @@
         <Content Include="Content\CustomCss\style.css" />
         <Content Include="Content\Images\anniversary.png" />
         <Content Include="Content\Images\birthday.png" />
+        <Content Include="Content\Images\Holiday.png" />
         <Content Include="Content\Images\loader.gif" />
         <Content Include="Content\Images\logo.svg" />
         <Content Include="Content\Images\search.png" />
@@ -337,6 +338,7 @@
         <Content Include="Views\Home\GetEmployees.cshtml" />
         <Content Include="Views\Leaves\Index.cshtml" />
         <Content Include="Views\Leaves\_ApplyLeave.cshtml" />
+        <Content Include="Views\Leaves\_PublicHoliday.cshtml" />
         <Content Include="Web.config" />
         <Content Include="Web.Debug.config">
             <DependentUpon>Web.config</DependentUpon>

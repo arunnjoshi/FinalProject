@@ -32,6 +32,7 @@
           <e p="Images" t="Include">
             <e p="anniversary.png" t="Include" />
             <e p="birthday.png" t="Include" />
+            <e p="Holiday.png" t="Include" />
             <e p="loader.gif" t="Include" />
             <e p="logo.svg" t="Include" />
             <e p="search.png" t="Include" />
@@ -194,6 +195,7 @@
           </e>
           <e p="Leaves" t="Include">
             <e p="_ApplyLeave.cshtml" t="Include" />
+            <e p="_PublicHoliday.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
@@ -240,6 +242,7 @@
           <e p="Department.cs" t="Include" />
           <e p="Employee.cs" t="Include" />
           <e p="EmployeeAddress.cs" t="Include" />
+          <e p="Events.cs" t="Include" />
           <e p="Leave.cs" t="Include" />
           <e p="PublicHolidays.cs" t="Include" />
         </e>

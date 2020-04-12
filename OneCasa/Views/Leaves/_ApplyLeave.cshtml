@@ -1,6 +1,5 @@
 ﻿@using System.Collections
 @using System.Web.UI.WebControls
-@using OfficeOpenXml.FormulaParsing.Excel.Functions.Text
 @model OneCasa.Models.ViewModels.Leave
 @{
     IEnumerable list;
@@ -12,6 +11,7 @@
         new ListItem{Text = "Paternity",Value = "Paternity"},
     };
     SelectList leaveType = new SelectList(list,"value","text");
+    Layout = "";
 
 }
 <div class="container">

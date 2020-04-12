@@ -11,8 +11,12 @@ namespace OneCasa.BusinessAccess
     {
         // frequently used data
         private readonly List<Employee>  _employeesDate;
+        private int day = 10;
+        private LeaveServices _leaveServices;
+
         public   EmployeeService()
         {
+            _leaveServices = new LeaveServices();
             _employeesDate = _GetEmployeeData();
         }
 
@@ -27,54 +31,88 @@ namespace OneCasa.BusinessAccess
             this.Start(false);
             return listEmployeeData;
         }
+
+        public List<Events> GetUpcomingEvents()
+        {
+            List<Events> employees = GetEmployeeData().Where(e=> new DateTime(DateTime.Today.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) <= DateTime.Today.AddDays(day) && 
+                         new DateTime(DateTime.Today.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) >= DateTime.Today)
+                .Select(e => new Events()
+                {
+                    Name = e.EmpName,
+                    EventName = "UpcomingBirthdays",
+                    Date = e.DateOfBirth,
+                    EventDate = new DateTime(DateTime.Today.Year,e.DateOfBirth.Month,e.DateOfBirth.Day)
+                }).ToList();
+            List<Events> ani = GetEmployeeData().Where(e =>
+                new DateTime(DateTime.Today.Year, e.JoinDate.Month, e.JoinDate.Day) <= DateTime.Today.AddDays(day) &&
+                new DateTime(DateTime.Today.Year, e.JoinDate.Month, e.JoinDate.Day) >= DateTime.Today &&
+                e.JoinDate.Year < DateTime.Today.Year)
+                .Select(e => new Events() 
+                {
+                    Name = e.EmpName,
+                    Date = e.JoinDate,
+                    EventName = "UpcomingAnniversary",
+                    EventDate = new DateTime(DateTime.Today.Year,e.JoinDate.Month,e.JoinDate.Day)   
+                }).ToList();
+            employees.AddRange(ani);
+            
+            List<Events> holidays = _leaveServices.GetPublicHolidays().
+                Where(h=> h.Date >= DateTime.Today && h.Date <= DateTime.Today.AddDays(day)).Select(h => new Events()
+            {
+                Name = h.Name,
+                EventName = "PublicHoliday",
+                EventDate = h.Date,
+            }).ToList();
+            employees.AddRange(holidays);
+            return employees.OrderBy(e=>e.EventDate).ThenBy(e=>e.Name).ToList();
+        }
+
+        public List<Events> GetPastEvents()
+        {
+            List<Events> employees = GetEmployeeData().Where(e =>
+                new DateTime(DateTime.Today.Year, e.DateOfBirth.Month, e.DateOfBirth.Day) >=
+                DateTime.Today.AddDays(-day) &&
+                new DateTime(DateTime.Today.Year, e.DateOfBirth.Month, e.DateOfBirth.Day) < DateTime.Today)
+                .Select(e => new Events()
+                {
+                    Name = e.EmpName,
+                    EventName = "PastBirthdays",
+                    Date = e.DateOfBirth,
+                    EventDate = new DateTime(DateTime.Today.Year,e.DateOfBirth.Month,e.DateOfBirth.Day)
+                })
+                .ToList();
+            
+            
+            
+            List<Events> ani = GetEmployeeData().Where(e =>
+                new DateTime(DateTime.Today.Year, e.JoinDate.Month, e.JoinDate.Day) > DateTime.Today.AddDays(-day) &&
+                new DateTime(DateTime.Today.Year, e.JoinDate.Month, e.JoinDate.Day) < DateTime.Today &&
+                e.JoinDate.Year < DateTime.Today.Year && e.JoinDate.Day != DateTime.Today.Day)
+                .Select(e => new Events() 
+                {
+                    Name = e.EmpName,
+                    Date = e.JoinDate,
+                    EventName = "PastAnniversary",
+                    EventDate = new DateTime(DateTime.Today.Year,e.JoinDate.Month,e.JoinDate.Day)
+                })
+                .ToList();
+            employees.AddRange(ani);
+
+            List<Events> holidays = _leaveServices.GetPublicHolidays().Where(h=> h.Date < DateTime.Today && h.Date >= DateTime.Today.AddDays(-day)).Select(h => new Events()
+            {
+                Name = h.Name,
+                EventName = "PublicHoliday",
+                EventDate = h.Date,
+            }).ToList();
+            employees.AddRange(holidays);
+            return employees.OrderByDescending(e => e.EventDate).ThenBy(e => e.Name).ToList();
+        }
+        
         public List<Employee> GetEmployeeData()
         {
-            // List<Employee> listEmployeeData = new List<Employee>();
-            // this.operation = () =>
-            // {
-            //     EmplyeeRepopsitory access = new EmplyeeRepopsitory(this.Transaction);
-            //     listEmployeeData = access.GetEmployeeData();
-            // };
-            // this.Start(false);
             return _employeesDate;
         }
-
-        public List<Employee> UpcomigBirthDays()
-        {
-            var employees = GetEmployeeData().Where(e=> new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) <= DateTime.Now.AddDays(10) && 
-                                                    new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) >= DateTime.Now).OrderBy(e=>e.DateOfBirth.Month).ThenBy(e=>e.DateOfBirth.Day).ThenBy(e=>e.EmpName).ToList();
-            return employees;
-        }
-        public List<Employee> PastBirthDays()
-        {
-            var employees = GetEmployeeData().Where(e=> new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) >= DateTime.Now.AddDays(-11) && 
-                                                        new DateTime(DateTime.Now.Year,e.DateOfBirth.Month,e.DateOfBirth.Day) < DateTime.Now)
-                                                        .OrderByDescending(e=>e.DateOfBirth.Month).ThenByDescending(e=>e.DateOfBirth.Day).ThenBy(e=>e.EmpName).ToList();
-            // employee = GetEmployeeData()
-             //    .Where(e => e.DateOfBirth <= DateTime.Now && e.DateOfBirth >= DateTime.Now.AddDays(-11)).OrderByDescending(e=>e.DateOfBirth).ToList();
-            return employees;
-        }
-
-        public List<Employee> UpcomingAnniversary()
-        {
-           
-
-            var employees=GetEmployeeData().Where(e=> new DateTime(DateTime.Now.Year,e.JoinDate.Month,e.JoinDate.Day) <= DateTime.Now.AddDays(10) && 
-                                                  new DateTime(DateTime.Now.Year,e.JoinDate.Month,e.JoinDate.Day) >= DateTime.Now && e.JoinDate.Year < DateTime.Now.Year)
-                                                  .OrderBy(e=>e.JoinDate.Month).ThenBy(e=>e.JoinDate.Day).ThenBy(e=>e.EmpName).ToList();
-
-            return employees;
-        }
-        public List<Employee> PastAnniversary()
-        {
-            var employees = GetEmployeeData().Where(e =>
-                    new DateTime(DateTime.Now.Year, e.JoinDate.Month, e.JoinDate.Day) >= DateTime.Now.AddDays(-11) &&
-                    new DateTime(DateTime.Now.Year, e.JoinDate.Month, e.JoinDate.Day) < DateTime.Now)
-                .OrderByDescending(e => e.JoinDate.Month).ThenByDescending(e => e.JoinDate.Day)
-                .ThenBy(e => e.EmpName).ToList();
-
-            return employees;
-        }
+        
 
         public void AddEmployee(EmployeeAddress emp)
         {

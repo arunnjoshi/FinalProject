@@ -20,9 +20,16 @@ namespace OneCasa.Controllers
             List<PublicHolidays> publicHolidayses =new List<PublicHolidays>();
             publicHolidayses = _leaveServices.GetPublicHolidays();
             ViewBag.PubluicHolidays = publicHolidayses;
-            return View("Index");
+            
+            List<Leave> leaves = _leaveServices.GetApplyedLeaves();
+            return View("Index",leaves);
         }
         
+        [HttpGet]
+        public ActionResult ApplyLeave()
+        {
+            return View("_ApplyLeave");
+        }
         
         [HttpPost]
         public ActionResult ApplyLeave(Leave leave)
@@ -35,7 +42,7 @@ namespace OneCasa.Controllers
             }
             catch (Exception e)
             {
-                return RedirectToRoute("index");
+                return RedirectToAction("index");
             }
         }
     }

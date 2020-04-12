@@ -38,15 +38,38 @@ namespace OneCasa.DataAccess
 
             AddParameter("@empId",leave.EmpId);
             AddParameter("@fromDate",leave.FromDate);
-            AddParameter("@todate",leave.ToDate);
-            AddParameter("@daycount",leave.ToDate.Day - leave.FromDate.Day);
+            AddParameter("@toDate",leave.ToDate);
+            AddParameter("@dayCount",leave.ToDate.Day - leave.FromDate.Day);
             AddParameter("@comment",leave.Comment);
             AddParameter("@leaveType",leave.LeaveType);
             AddParameter("@leaveStatus","pending");
-            AddParameter("@StartTime",DateTime.Now.TimeOfDay);
-            AddParameter("@EndTime",DateTime.Now.TimeOfDay);
+            AddParameter("@StartTime",DateTime.Today.TimeOfDay);
+            AddParameter("@EndTime",DateTime.Today.TimeOfDay);
 
             ExecuteNonQuery("sp_ApplyLeave");
+        }
+        
+        
+        public List<Leave> GetApplyedLeaves()
+        {
+            DBParameters.Clear();
+
+            AddParameter("@startDate",DateTime.Today.AddDays(-15));
+            AddParameter("@endDate",DateTime.Today.AddDays(15));
+            DataSet dataSet =  ExecuteDataSet("sp_GetLeaves");
+            List <Leave> leaves= dataSet.Tables[0].AsEnumerable().Select(l=>new Leave()
+            {
+                EmpName = l.Field<string>("emp_Name"),
+                Department = l.Field<string>("Department"),
+                FromDate = l.Field<DateTime>("fromDate"),
+                ToDate = l.Field<DateTime>("toDate"),
+                DayCount = l.Field<int>("dayCount"),
+                Comment = l.Field<string>("comment"),
+                LeaveType = l.Field<string>("leaveType"),
+                LeaveStatus = l.Field<string>("leaveStatus"),
+            }).ToList();
+
+            return leaves;
         }
     }
 }

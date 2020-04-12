@@ -2,6 +2,33 @@
     padding: 0;
     margin: 0;
 }
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  
+
+
+
+
 .clr{
     clear: both;
 }
@@ -12,17 +39,21 @@
 body {
     background-color: #f6f6f6
 }
+.event-container{
+    height: 900px;
+    width: 300px;
+}
 
-#upcoming-event, #past-event{
+#upcoming-events, #past-events{
     overflow: auto;
-    height: 300px;
+    max-height: 350px;
     width: 100%
 }
 
-#upcoming-event ul li,#past-event ul li {
+#upcoming-events ul li,#past-events ul li {
     list-style: none;
-    text-align: center;
-    
+    text-align: justify;
+    margin-right: 20px;
 }
 table
 {
@@ -87,4 +118,18 @@ table tbody tr:hover {
     list-style: none;
     float: left;
     margin: 0 2%;
+}
+
+
+.week-ends{
+    background-color: #E7E7EE;
+    border: 0
+}
+.leave-cell{
+    background-color: green;
+    color: #E7E7EE
+}
+
+.hide{
+    display: none;
 }
