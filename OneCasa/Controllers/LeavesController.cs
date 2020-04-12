@@ -17,6 +17,7 @@ namespace OneCasa.Controllers
         }
         public ActionResult Index()
         {
+            
             List<PublicHolidays> publicHolidayses =new List<PublicHolidays>();
             publicHolidayses = _leaveServices.GetPublicHolidays();
             ViewBag.PubluicHolidays = publicHolidayses;
@@ -45,5 +46,11 @@ namespace OneCasa.Controllers
                 return RedirectToAction("index");
             }
         }
+
+        public JsonResult GetPendingLeaves(string emailId)
+        {
+            var pendingLeaves = _leaveServices.GetLeaveStatus(emailId);
+            return Json(pendingLeaves,JsonRequestBehavior.AllowGet);
+        } 
     }
 }
