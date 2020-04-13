@@ -22,7 +22,6 @@ namespace OneCasa.Controllers
             List<PublicHolidays> publicHolidayses =new List<PublicHolidays>();
             publicHolidayses = _leaveServices.GetPublicHolidays();
             ViewBag.PubluicHolidays = publicHolidayses;
-            
             List<Leave> leaves = _leaveServices.GetApplyedLeaves();
             return View("Index",leaves);
         }

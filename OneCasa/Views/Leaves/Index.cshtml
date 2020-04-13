@@ -1,5 +1,7 @@
 ﻿@using System.Web.UI.WebControls
 @using System.Collections
+@using OfficeOpenXml.FormulaParsing.Excel.Functions.Logical
+@using OneCasa.Models.ViewModels
 @model IEnumerable<OneCasa.Models.ViewModels.Leave>
 @{
     ViewBag.Title = "title";
@@ -50,7 +52,11 @@
                          <td>@leave.Department</td>
                           @for (var d=DateTime.Today.AddDays(-15);d<=DateTime.Today.AddDays(15);d=d.AddDays(1))
                           {
-                              if (d.DayOfWeek.ToString() == "Saturday" || d.DayOfWeek.ToString() =="Sunday")
+                              if (false)
+                              {
+                                  <td>O</td>
+                              }
+                              else if (d.DayOfWeek.ToString() == "Saturday" || d.DayOfWeek.ToString() =="Sunday")
                               {
                                   <td class="week-ends"></td>
                               }
