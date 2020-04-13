@@ -113,16 +113,16 @@
     
     
     <div id="ApplyLeaves" >
-        <h1 class="text-center">Apply Leaves</h1>
+        <h5 class="text-center">Apply Leaves</h5>
         @Html.Action("ApplyLeave", "Leaves")
         
     </div>
     
     
     <div id="PendingLeaves">
-        <h1 class="text-center">Pending Leaves</h1>
+        <h5 class="text-center">Pending Leaves</h5>
         <div class="container pending-leaves">
-            <table class="table">
+            <table class="table table-bordered table-striped leave-table">
                 <thead>
                 <th>From Date</th>
                 <th>To Date</th>
@@ -137,10 +137,22 @@
             </table>
         </div>
     </div>
-    
-    
     <div id="LeavesStatus">
-        <h1>Leaves Status</h1>
+        <h5 class="text-center">Leaves History</h5>
+        <div class="container leave-history">
+            <table class="table table-bordered table-striped leave-table">
+                 <thead>
+                 <th>From Date</th>
+                 <th>To Date</th>
+                 <th>Leave Type</th>
+                 <th>Comment</th>
+                 <th>Leave Status</th>
+                 </thead>
+                 <tbody>
+                    
+                 </tbody>
+            </table>
+        </div>
     </div>
     
     <div id="PublicHolidays" class="container">

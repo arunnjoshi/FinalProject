@@ -23,7 +23,7 @@ $.ajax({
     method:"GET",
     dataType: "Json",
     success: function (response) {
-        console.log(response);
+        // console.log(response);
         let html="<tr>";
         $.each(response, function (indexInArray, valueOfElement) 
         { 
@@ -40,6 +40,32 @@ $.ajax({
              `;
         });
         $(".pending-leaves table tbody").html(html);
+    }
+});
+
+
+
+$.ajax({
+    url: "/Leaves/GetLeaveHistory?emailId=arun.joshi@gmail.com",
+    method:"GET",
+    dataType: "Json",
+    success: function (response) {
+        // console.log(response);
+        let html="<tr>";
+        $.each(response, function (indexInArray, valueOfElement) 
+        { 
+            let fromDate = new Date(parseInt(  valueOfElement.FromDate.replace('/Date(', '')));
+            let todate = new Date(parseInt(  valueOfElement.ToDate.replace('/Date(', '')));
+             html+=`
+             <td>${ fromDate.getDate() }/${ fromDate.getMonth() }/${ fromDate.getFullYear() }</td>
+             <td>${ todate.getDate() }/${ todate.getMonth() }/${ todate.getFullYear() }</td>
+             <td>${valueOfElement.LeaveType}</td>
+             <td>${valueOfElement.Comment}</td>
+             <td>${valueOfElement.LeaveStatus}</td>
+             </tr>
+             `;
+        });
+        $(".leave-history table tbody").html(html);
     }
 });
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 using OneCasa.BusinessAccess;
 using OneCasa.Models.ViewModels;
 
@@ -51,6 +52,12 @@ namespace OneCasa.Controllers
         {
             var pendingLeaves = _leaveServices.GetLeaveStatus(emailId);
             return Json(pendingLeaves,JsonRequestBehavior.AllowGet);
-        } 
+        }
+
+        public JsonResult GetLeaveHistory(string emailId)
+        {
+            var leaveHistory = _leaveServices.GetLeaveHistory(emailId);
+            return Json(leaveHistory,JsonRequestBehavior.AllowGet);
+        }
     }
 }

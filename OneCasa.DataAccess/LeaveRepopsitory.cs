@@ -111,6 +111,28 @@ namespace OneCasa.DataAccess
             }).ToList();
             return leaves;
         }
+        
+        
+        public List<Leave> GetLeaveHistory(string emailId)
+        {
+            DBParameters.Clear();
+            
+            
+            AddParameter("@emailId",emailId);
+            DataSet deplist = ExecuteDataSet("sp_LeavesHistory");
+            List<Leave> leaves = deplist.Tables[0].AsEnumerable().Select(l=>new Leave()
+            {
+                
+                Email = l.Field<string>("emailId"),
+                FromDate = l.Field<DateTime>("fromDate"),
+                ToDate = l.Field<DateTime>("toDate"),
+                DayCount = l.Field<int>("dayCount"),
+                Comment = l.Field<string>("comment"),
+                LeaveType = l.Field<string>("leaveType"),
+                LeaveStatus = l.Field<string>("leaveStatus"),
+            }).ToList();
+            return leaves;
+        }
 
         
     }

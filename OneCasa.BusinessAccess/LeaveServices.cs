@@ -51,6 +51,18 @@ namespace OneCasa.BusinessAccess
             this.Start(false);
             return leave;
         }
+
+        public List<Leave> GetLeaveHistory(string emailId)
+        {
+            List<Leave>  leave = new List<Leave>();
+            this.operation = () =>
+            {
+                LeaveRepopsitory access = new LeaveRepopsitory(this.Transaction);
+                leave = access.GetLeaveHistory(emailId);
+            };
+            this.Start(false);
+            return leave;
+        }
         
 
     }
